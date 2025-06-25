@@ -136,6 +136,7 @@ def read(id):
     except Exception as e:
         print(f"데이터베이스 조회 오류: {e}")
         return "오류가 발생했습니다. <a href='/'>돌아가기</a>"
+    
     finally:
         if conn:
             conn.close()
@@ -262,8 +263,8 @@ def search():
         elif search_type == 'title_body':
             conn = get_db_connection()
             with conn.cursor() as cursor:
-                sql= "SELECT * FROM topic WHERE title LIKE %s AND body LIKE %s ORDER BY id DESC"
-                cursor.execute(sql, f"%{search_name}%", f"%{search_name}%")
+                sql= "SELECT * FROM topic WHERE title LIKE %s OR body LIKE %s ORDER BY id DESC"
+                cursor.execute(sql, (f"%{search_name}%", f"%{search_name}%"))
                 topics_from_db = cursor.fetchall()
                 return render_template('search.html', things = topics_from_db, search_name = search_name)
         else:

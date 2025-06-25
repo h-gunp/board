@@ -11,7 +11,7 @@
         <h1><em><a href="/">초코파이 인사이드...</a></em></h1>
         <hr>
         <ol>
-                <h3>{{ search_name }} 게시글 목록</h3>
+                <h3><em><mark>{{ search_name }}</mark></em> 게시글 목록</h3>
                 {% if things %}
                     {% for thing in things %}
                         <li><a href="/read/{{ thing.id }}/">{{ thing.title }}</a></li>
@@ -20,9 +20,7 @@
                     <li>게시글이 없습니다.</li>
                 {% endif %}
         </ol>
-        {% block content %}{% endblock %}
         <br>
-        {% block menu %}{% endblock %}
     </div>
 </body>
 </html>
