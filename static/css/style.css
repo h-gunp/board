@@ -62,3 +62,23 @@ input[type="submit"] {
 input[value="삭제하기"] {
     background-color: #e45651;
 }
+
+.paging {
+    text-align: center;
+    margin-top: 20px;
+}
+.paging a, .paging span {
+    margin: 0 5px;
+    padding: 8px 12px;
+    text-decoration: none;
+    border: 1px solid #ddd;
+    color: #4a4c3c;
+}
+.paging .current_page {
+    background-color: #6a4c3c;
+    color: white;
+    border-color: #6a4c3c;
+}
+.paging a:hover {
+    background-color: #f4f4f4;
+}

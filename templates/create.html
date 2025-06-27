@@ -10,11 +10,13 @@
         <body>
             <h1><em><a href="/">초코파이 인사이드...</a></em></h1>
             <hr><p>초코파이에 대해 토론하는 곳 입니다..</p><hr>
-            <form action="/create/" method="POST">
+            <form name="createForm" action="/create/" method="POST" onsubmit="return validateForm()">
             <p><input type="text" name="title" placeholder="제목"></p>
             <p><textarea name="body" placeholder="게시글 작성"></textarea></p>
             <p><input type="submit" value="작성완료"></p>
             </form>
+
+            <script src="{{ url_for('static', filename='js/validation.js') }}"></script>
         </body>
     </div>
 </html>
